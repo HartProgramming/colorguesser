@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+}
+
+#header{
+    height: 350px;
+    width: 100%;
+    background-color: teal;
+    color: white;
+    font-size: 18px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#gameContent{
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#selectGame{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#newGame{
+    background-color: blue;
+    width: 150px;
+    height: 30px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#newGame p{
+    top: -35%;
+    left: 20%;
+    position: absolute;
+}
+
+#easyGame{
+    border: 2px solid white;
+    width: 75px;
+    height: 30px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#easyGame p{
+    top: -35%;
+    left: 20%;
+    position: absolute;
+}
+
+#hardGame{
+    border: 2px solid white;
+    width: 75px;
+    height: 30px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#hardGame p{
+    top: -35%;
+    left: 20%;
+    position: absolute;
+}
+
+#divArticle{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 10px;
+    justify-content: center;
+}
+
+.divBox{
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
