@@ -144,12 +144,14 @@ easyGame.addEventListener("click", function () {
     easyGame.style.color = "teal";
     easyGame.style.backgroundColor = "white";
     easy()
+    hardGame.style.pointerEvents = "none";
 })
 
 hardGame.addEventListener("click", function () {
     hardGame.style.color = "teal";
     hardGame.style.backgroundColor = "white";
     hard()
+    easyGame.style.pointerEvents = "none";
 })
 
 
