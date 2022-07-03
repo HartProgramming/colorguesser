@@ -60,7 +60,7 @@ const applyColor = (button, difficultyBtn) => {
 
 let btnArray = [button1, button2, button3, button4, button5, button6];
 
-let guess = 3;
+let guess;
 
 
 /* Adjusts Hard difficulty by finding a random number between 0 - 25
@@ -70,6 +70,7 @@ function adjustColorHard() {
 }
 
 function easy(guess, divArticle, btnArray) {
+    guess = 3
     console.log(guess)
     let button1Easy = new Btn(randomColor(255), randomColor(255), randomColor(255));
     let button2Easy = new Btn(randomColor(255), randomColor(255), randomColor(255));
@@ -89,12 +90,12 @@ function easy(guess, divArticle, btnArray) {
             if (x.style.backgroundColor === correctResponse) {
                 update.textContent = "YOU WIN";
                 console.log("win");
-                guess = null;
-                easyArr = null;
-                btnArray = null;
+                guess = undefined;
+                easyArr = undefined;
+                btnArray = undefined;
                 divArticle.style.display = "none";
                 console.log(divArticle)
-                correctResponse = null;
+                correctResponse = undefined;
                 easyGame.style.color = "teal";
                 easyGame.style.backgroundColor = "white";
                 return
@@ -104,11 +105,11 @@ function easy(guess, divArticle, btnArray) {
                 console.log(update.textContent)
                 if (guess === 0) {
                     update.textContent = "YOU LOSE";
-                    guess = null;
+                    guess = undefined;
                     divArticle.style.display = "none";
-                    easyArr = null;
-                    btnArray = null
-                    correctResponse = null;
+                    easyArr = undefined;
+                    btnArray = undefined;
+                    correctResponse = undefined;
                     easyGame.style.color = "teal";
                     easyGame.style.backgroundColor = "white";
                 }
@@ -119,7 +120,9 @@ function easy(guess, divArticle, btnArray) {
 
 
 /* Hard function for hard game difficulty */
-function hard(guess, divArticle) {
+function hard(guess, divArticle, btnArray) {
+    guess = 3;
+
     let r = randomColor(255);
     let g = randomColor(255);
     let b = randomColor(255);
@@ -153,11 +156,10 @@ function hard(guess, divArticle) {
             if (x.style.backgroundColor === correctResponse) {
                 update.textContent = "YOU WIN"
                 console.log("win")
-                guess = null;
-                hardArr = null;
-                btnArray = null;
+                guess = undefined;
+                hardArr = undefined;
                 divArticle.style.display = "none";
-                correctResponse = null;
+                correctResponse = undefined;
                 hardGame.style.color = "teal";
                 hardGame.style.backgroundColor = "white";
                 return null
@@ -167,20 +169,14 @@ function hard(guess, divArticle) {
                 update.textContent = `${guess} guesses remaining`
                 if (guess === 0) {
                     update.textContent = "YOU LOSE";
-                    guess = null;
+                    guess = undefined;
                     divArticle.style.display = "none";
-                    hardArr = null;
-                    btnArray = null;
-                    correctResponse = null;
+                    hardArr = undefined;
+                    correctResponse = undefined;
                     hardGame.style.color = "teal";
                     hardGame.style.backgroundColor = "white";
                     return null
                 }
-            } else if (x.style.backgroundColor !== correctResponse && update.textContent === "YOU WIN") {
-                hardArr = null;
-                guess = null;
-                correctResponse = null;
-                btnArray = null;
             }
 
         })
@@ -189,16 +185,17 @@ function hard(guess, divArticle) {
 }
 
 function refresh(arr, divArticle, update, guess) {
+    guess = 3;
     setTimeout(() => {
         divArticle.style.display = "flex";
         for (let x of arr) {
             divArticle.append(x);
             x.classList.add("divBox");
-            x.style.backgroundColor = null;
+            x.style.backgroundColor = undefined;
         }
         update.textContent = `${guess} guesses remaining`
         if (update.textContent === "YOU WIN" || update.textContent === "YOU LOSE") {
-            guess = null;
+            guess = undefined;
             console.log(guess)
         }
         console.log(guess);
@@ -217,7 +214,7 @@ easyGame.addEventListener("click", function () {
 hardGame.addEventListener("click", function () {
     hardGame.style.color = "white";
     hardGame.style.backgroundColor = "teal";
-    hard(guess, divArticle);
+    hard(guess, divArticle, btnArray);
     easyGame.style.pointerEvents = "none";
     hardGame.style.pointerEvents = "none";
 })
