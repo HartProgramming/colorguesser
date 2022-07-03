@@ -157,8 +157,10 @@ function hard(guess, divArticle) {
                 correctResponse = null;
                 hardGame.style.color = "teal";
                 hardGame.style.backgroundColor = "white";
+                return null
             } else if (x.style.backgroundColor !== correctResponse) {
                 guess = parseInt(guess - 1);
+                console.log(guess)
                 update.textContent = `${guess} guesses remaining`
                 if (guess === 0) {
                     update.textContent = "YOU LOSE";
@@ -168,9 +170,17 @@ function hard(guess, divArticle) {
                     correctResponse = null;
                     hardGame.style.color = "teal";
                     hardGame.style.backgroundColor = "white";
+                    return null
                 }
+            }else if(x.style.backgroundColor !== correctResponse && update.textContent === "YOU WIN"){
+                hardArr = null;
+                guess = null;
+                correctResponse = null;
+                return null
             }
+        
         })
+        
     }
 }
 
