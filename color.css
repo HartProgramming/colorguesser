@@ -25,51 +25,10 @@ body{
 #selectGame{
     margin: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    border-bottom: 3px solid teal;
 }
 
-#newGame{
-    background-color: blue;
-    width: 150px;
-    height: 30px;
-    margin-top: 20px;
-    position: relative;
-}
-
-#newGame p{
-    top: -35%;
-    left: 20%;
-    position: absolute;
-}
-
-#easyGame{
-    border: 2px solid white;
-    width: 75px;
-    height: 30px;
-    margin-top: 20px;
-    position: relative;
-}
-
-#easyGame p{
-    top: -35%;
-    left: 20%;
-    position: absolute;
-}
-
-#hardGame{
-    border: 2px solid white;
-    width: 75px;
-    height: 30px;
-    margin-top: 20px;
-    position: relative;
-}
-
-#hardGame p{
-    top: -35%;
-    left: 20%;
-    position: absolute;
-}
 
 #divArticle{
     display: flex;
@@ -80,10 +39,25 @@ body{
     justify-content: center;
 }
 
+#newGame{
+    width: 125px;
+}
+
+#easyGame{
+    width: 80px;
+    border: none;
+}
+
+#hardGame{
+    width: 80px;
+    border: none;
+}
+
 .divBox{
     height: 200px;
     width: 200px;
     border: 2px solid black;
     border-radius: 10px;
     margin: 10px;
+    cursor: pointer;
 }
