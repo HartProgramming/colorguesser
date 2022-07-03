@@ -58,7 +58,7 @@ const applyColor = (button, difficultyBtn) => {
     return button.style.backgroundColor = `rgb(${difficultyBtn.r}, ${difficultyBtn.g}, ${difficultyBtn.b})`;
 }
 
-const btnArray = [button1, button2, button3, button4, button5, button6];
+let btnArray = [button1, button2, button3, button4, button5, button6];
 
 let guess = 3;
 
@@ -69,7 +69,7 @@ function adjustColorHard() {
     return Math.floor(Math.random() * 45);
 }
 
-function easy(guess, divArticle) {
+function easy(guess, divArticle, btnArray) {
     console.log(guess)
     let button1Easy = new Btn(randomColor(255), randomColor(255), randomColor(255));
     let button2Easy = new Btn(randomColor(255), randomColor(255), randomColor(255));
@@ -85,12 +85,13 @@ function easy(guess, divArticle) {
     rgb.textContent = correctResponse;
     console.log(easyArr)
     for (let x of btnArray) {
-        x.addEventListener("click", function(){
+        x.addEventListener("click", function () {
             if (x.style.backgroundColor === correctResponse) {
                 update.textContent = "YOU WIN";
                 console.log("win");
                 guess = null;
                 easyArr = null;
+                btnArray = null;
                 divArticle.style.display = "none";
                 console.log(divArticle)
                 correctResponse = null;
@@ -106,6 +107,7 @@ function easy(guess, divArticle) {
                     guess = null;
                     divArticle.style.display = "none";
                     easyArr = null;
+                    btnArray = null
                     correctResponse = null;
                     easyGame.style.color = "teal";
                     easyGame.style.backgroundColor = "white";
@@ -153,6 +155,7 @@ function hard(guess, divArticle) {
                 console.log("win")
                 guess = null;
                 hardArr = null;
+                btnArray = null;
                 divArticle.style.display = "none";
                 correctResponse = null;
                 hardGame.style.color = "teal";
@@ -167,20 +170,21 @@ function hard(guess, divArticle) {
                     guess = null;
                     divArticle.style.display = "none";
                     hardArr = null;
+                    btnArray = null;
                     correctResponse = null;
                     hardGame.style.color = "teal";
                     hardGame.style.backgroundColor = "white";
                     return null
                 }
-            }else if(x.style.backgroundColor !== correctResponse && update.textContent === "YOU WIN"){
+            } else if (x.style.backgroundColor !== correctResponse && update.textContent === "YOU WIN") {
                 hardArr = null;
                 guess = null;
                 correctResponse = null;
-                return null
+                btnArray = null;
             }
-        
+
         })
-        
+
     }
 }
 
@@ -205,7 +209,7 @@ function refresh(arr, divArticle, update, guess) {
 easyGame.addEventListener("click", function () {
     easyGame.style.color = "white";
     easyGame.style.backgroundColor = "teal";
-    easy(guess, divArticle)
+    easy(guess, divArticle, btnArray);
     hardGame.style.pointerEvents = "none";
     easyGame.style.pointerEvents = "none";
 })
@@ -213,7 +217,7 @@ easyGame.addEventListener("click", function () {
 hardGame.addEventListener("click", function () {
     hardGame.style.color = "white";
     hardGame.style.backgroundColor = "teal";
-    hard(guess, divArticle)
+    hard(guess, divArticle);
     easyGame.style.pointerEvents = "none";
     hardGame.style.pointerEvents = "none";
 })
